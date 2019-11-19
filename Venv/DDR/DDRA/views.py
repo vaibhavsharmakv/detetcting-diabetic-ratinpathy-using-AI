@@ -14,12 +14,13 @@ import sys,os,uuid
 
 
 
-def display_eye(request):
+def display_eye(request, my_id):
+    obj = ei.objects.get(id = my_id)
    
     var = {
-        'obj' :''# scrpt.stdout,
+        'obj' :obj
     }
-    return render(request,"home.html",var)
+    return render(request,"display.html",var)
 
 
 
@@ -30,8 +31,9 @@ def home_view(request, *args, **kwargs):
         form = eye_images_form(request.POST,request.FILES)
         if form.is_valid():
             new_form = form.save() 
-            print(new_form.id)
-        return redirect('/display/')
+            my_id = str(new_form.id)
+        return redirect('/display/'+ my_id)
+        
 
     else:
         form = eye_images_form()

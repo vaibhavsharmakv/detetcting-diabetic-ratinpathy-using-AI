@@ -24,7 +24,7 @@ from DDRA.views import home_view,display_eye
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_view),
-    path('display/', display_eye)
+    path('display/<int:my_id>', display_eye)
 ]
 
 
