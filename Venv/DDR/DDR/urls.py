@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf.urls.static import static 
 from django.conf import settings
 
@@ -22,11 +22,14 @@ from DDRA.views import home_view,display_eye
 
 
 urlpatterns = [
+    path('DDRA/',include('DDRA.urls')),
     path('admin/', admin.site.urls),
     path('', home_view),
-    path('display/<int:my_id>', display_eye)
+    path('display/<int:my_id>', display_eye),
+    
+    
 ]
-
+ 
 
 urlpatterns += static(settings.MEDIA_URL,document_root= settings.MEDIA_ROOT)
 
