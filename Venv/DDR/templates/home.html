@@ -1,0 +1,29 @@
+{%extends "base.html"%}
+{%block content%}
+
+ <h1>home </h1>
+
+
+    <form method='POST'  enctype='multipart/form-data'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type = "submit"  >submit</button>
+    <form>
+
+    <img src = "{{image.url}}" />
+
+
+
+<!-- 
+<p>Test</p>
+
+<form action = "/display/" method = "POST" >
+    {% csrf_token %}
+    <input type="file" name="uploadFile"  required> <br><br>
+    <input type="submit" value="Calculate Result" name="Calculate Result">
+</form>
+
+{{obj}}
+ -->
+
+ {%endblock %}
