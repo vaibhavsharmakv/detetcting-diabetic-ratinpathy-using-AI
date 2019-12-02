@@ -1,29 +1,30 @@
 {%extends "base.html"%}
-{%block content%}
 
- <h1>home </h1>
+{% load crispy_forms_tags %}
+
+{%block homepage_navbar%}
+<li class="nav-item">
+    <a class="nav-link js-scroll-trigger" href="#about">About</a>
+</li>
+{%endblock%}
+
+{%block section_id%}
+    <section id="about">
+{%endblock%}
 
 
-    <form method='POST'  enctype='multipart/form-data'>
+{%block content_div_header%}
+    <form id = "form" method='POST'  enctype='multipart/form-data'>
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type = "submit"  >submit</button>
+        <div class="custom-file mb-3">
+            <input type="file" class="custom-file-input" id="customFile" required id="id_image" name="image" alt="Submit Form">
+            <label class="custom-file-label" for="customFile" >Click here to Upload file..</label>
+        </div>
     <form>
-
-    <img src = "{{image.url}}" />
-
+{%endblock %}
 
 
-<!-- 
-<p>Test</p>
 
-<form action = "/display/" method = "POST" >
-    {% csrf_token %}
-    <input type="file" name="uploadFile"  required> <br><br>
-    <input type="submit" value="Calculate Result" name="Calculate Result">
-</form>
 
-{{obj}}
- -->
 
- {%endblock %}
+ 

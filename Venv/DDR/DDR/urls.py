@@ -19,17 +19,14 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 from DDRA.views import home_view,display_eye
-
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns 
 
 urlpatterns = [
     path('DDRA/',include('DDRA.urls')),
     path('admin/', admin.site.urls),
     path('', home_view),
     path('display/<int:my_id>', display_eye),
-    
-    
 ]
- 
-
 urlpatterns += static(settings.MEDIA_URL,document_root= settings.MEDIA_ROOT)
 
+urlpatterns += staticfiles_urlpatterns()
